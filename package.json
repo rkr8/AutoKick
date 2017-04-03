@@ -1,0 +1,22 @@
+{
+  "name": "AutoKick",
+  "version": "0.0.0",
+  "description": "A small telegram bot, which automatically removes group members with bad behaviour",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkr8/AutoKick.git"
+  },
+  "author": "Roman KR8",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/rkr8/AutoKick/issues"
+  },
+  "homepage": "https://github.com/rkr8/AutoKick#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.27.0"
+  }
+}
