@@ -22,7 +22,7 @@ constants.triggers.forEach(function (trigger) {
         // let him know, why is gets kicked
         bot.sendMessage(msg.chat.id, constants.answer).then(function () {
             bot.kickChatMember(msg.chat.id, msg.from.id).then(function () {
-                console.log(chalk.yellow(logSymbols.warning, '%s %s was kicked.', msg.from.first_name, msg.from.lastname));
+                console.log(chalk.yellow(logSymbols.warning, msg.from.first_name, msg.from.lastname, 'was kicked.'));
             }, function (error) {
                 // user is probably admin
                 console.log(chalk.red(logSymbols.error, error));
