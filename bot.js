@@ -36,7 +36,8 @@ bot.sendMessage(msg.chat.id, constants.answer).then(function () {
 var log = [];
 
 bot.on('message', (msg) => {
-    log.push(msg);
+    if (!(msg.text == null || msg.text == ""))
+        log.push(msg);
     
     text = msg.text;
     count = 0
