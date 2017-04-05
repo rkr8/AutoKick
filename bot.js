@@ -31,11 +31,8 @@ bot.sendMessage(msg.chat.id, constants.answer).then(function () {
     });
 }
 
-// multiple triggers can be specified
-constants.triggers.forEach(function (trigger) {
-    bot.on('message', (msg) => {
-        answer(msg);
-    });
+
+bot.on('message', (msg) => {
 });
 
 // make it modular
