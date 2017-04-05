@@ -1,7 +1,9 @@
-var TelegramBot = require('node-telegram-bot-api');
+var constants = require('./constants');
+
 var chalk = require('chalk');
 var logSymbols = require('log-symbols');
-var constants = require('./constants');
+var TelegramBot = require('node-telegram-bot-api');
+
 
 var bot = null;
 try {
@@ -31,8 +33,26 @@ bot.sendMessage(msg.chat.id, constants.answer).then(function () {
     });
 }
 
+var log = [];
 
 bot.on('message', (msg) => {
+    log.push(msg);
+    
+    text = msg.text;
+    count = 0
+    
+    log.forEach(
+        function(msg) {
+            if (new Date()/1000 - msg.date > constants.memoryTime && constants.memoryTime > 0) {
+                log.shift();
+            } else if (msg.text == text) {
+                count++;
+            }
+        }
+    );
+    
+    if (count > constants.threshold)
+        answer(msg);
 });
 
 // make it modular
