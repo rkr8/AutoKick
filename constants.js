@@ -1,6 +1,6 @@
 module.exports = {
     answer: 'FRESSE!',
-    memoryTime: 600, // seconds
-    threshold: 1,
+    logSize: 4,
+    threshold: 2,
     token: process.env.TOKEN,
 };

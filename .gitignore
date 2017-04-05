@@ -1,12 +1,16 @@
 
-# Created by https://www.gitignore.io/api/node,linux,visualstudiocode
+# Created by https://www.gitignore.io/api/node,linux,visualstudiocode,kate
+
+### Kate ###
+# Swap Files #
+.*.kate-swp
+.swp.*
 
 ### Linux ###
 *~
 
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
-*.kate-swp
 
 # KDE directory preferences
 .directory
@@ -85,4 +89,4 @@ typings/
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# End of https://www.gitignore.io/api/node,linux,visualstudiocode
+# End of https://www.gitignore.io/api/node,linux,visualstudiocode,kate
