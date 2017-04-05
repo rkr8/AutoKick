@@ -1,12 +1,12 @@
 module.exports = function (size) {
     return {
-        index: 0,
         logSize: size,
-        messages: new Array(logSize),
+        index: 0,
+        messages: new Array(size),
         addMessage: function (msg) {
             // minimal ring buffer implementation
-            messages[index] = msg;
-            index = (index + 1) % logSize;
+            this.messages[this.index] = msg;
+            this.index = (this.index + 1) % this.logSize;
         }
     }
-};
+}

@@ -1,20 +1,8 @@
-var constants = require('./constants');
-
 var chalk = require('chalk');
 var logSymbols = require('log-symbols');
 var TelegramBot = require('node-telegram-bot-api');
 
-
 var bot = null;
-
-var log = [];
-
-bot.on('message', function (msg) {
-    // filter images, stickers, etc.
-    if (!(msg.text == null || msg.text == "")) {
-
-    }
-});
 
 // make it modular
 module.exports = function (constants) {
@@ -26,6 +14,9 @@ module.exports = function (constants) {
         console.log(chalk.red(logSymbols.error, error));
         process.exit(1);
     }
+    bot.constants = constants;
+    // bot uses messageLog to prevent spam
+    bot.messageLog = require('./messageLog')(constants.logSize);
     // modularisation is always god
     bot.answerAndKick = require('./answerAndKick');
     bot.registerActions = require('./registerActions');
