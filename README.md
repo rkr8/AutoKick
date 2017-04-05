@@ -4,7 +4,7 @@
 
 AutoKick is a small telegram bot, which automatically removes group members with bad behaviour.
 
-## Installatom
+## Installation
 
 This project requires NodeJS for execution and uses NPM for dependency management.
 First, clone this repository using `git clone https://github.com/rkr8/AutoKick.git && cd AutoKick`.
