@@ -16,21 +16,25 @@ try {
 // everything works fine
 console.log(chalk.green(logSymbols.success, 'The bot was started successfully.'));
 
-// multiple triggers can be specified
-constants.triggers.forEach(function (trigger) {
-    bot.onText(trigger, function (msg, match) {
-        // let him know, why is gets kicked
-        bot.sendMessage(msg.chat.id, constants.answer).then(function () {
-            bot.kickChatMember(msg.chat.id, msg.from.id).then(function () {
-                console.log(chalk.yellow(logSymbols.warning, msg.from.first_name, msg.from.lastname, 'was kicked.'));
-            }, function (error) {
-                // user is probably admin
-                console.log(chalk.red(logSymbols.error, error));
-            });
+answer = function (msg) {
+// let them know, why they get kicked
+bot.sendMessage(msg.chat.id, constants.answer).then(function () {
+    bot.kickChatMember(msg.chat.id, msg.from.id).then(function () {
+        console.log(chalk.yellow(logSymbols.warning, msg.from.first_name, msg.from.lastname, 'was kicked.'));
         }, function (error) {
-            // bot was probably removed
+            // user is probably admin
             console.log(chalk.red(logSymbols.error, error));
         });
+    }, function (error) {
+        // bot was probably removed
+        console.log(chalk.red(logSymbols.error, error));
+    });
+}
+
+// multiple triggers can be specified
+constants.triggers.forEach(function (trigger) {
+    bot.on('message', (msg) => {
+        answer(msg);
     });
 });
 
