@@ -21,7 +21,9 @@ module.exports = function answerAndKick(msg, answer) {
 
     timers.setTimeout(
         function () {
-            this.bot.unbanChatMember(msg.chat.id, msg.from.id);
+            if (msg.chat.type == 'supergroup') {
+                this.bot.unbanChatMember(msg.chat.id, msg.from.id);
+            }
         }.bind(
             {
                 bot: this
