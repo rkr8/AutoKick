@@ -20,3 +20,5 @@ You can easily adjust AutoKick's settings by modifying `constants.js`.
 ## Contributing
 
 Feel free to create pull requests. Just make sure you use a matching coding style.
+Active pull request creators will be added as collaborators,
+while inactive collaborators will be removed after a certain time.
