@@ -1,5 +1,6 @@
 var chalk = require('chalk');
 var logSymbols = require('log-symbols');
+var timers = require('timers');
 
 module.exports = function answerAndKick(msg, answer) {
     // let them know, why they get kicked
@@ -16,11 +17,16 @@ module.exports = function answerAndKick(msg, answer) {
         // user is probably admin
         console.log(chalk.red(logSymbols.error, error));
     });
-    // TODO: Ab hier!
+    this.messageLog.addBanned(msg.from.id);
+
     timers.setTimeout(
         function () {
-            this.sendMessage(msg.from.id, answer);
-        },
-        banTime * 1000
+            this.bot.unbanChatMember(msg.chat.id, msg.from.id);
+        }.bind(
+            {
+                bot: this
+            }
+        ),
+        this.constants.banTime * 1000
     );
 };
