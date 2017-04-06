@@ -1,3 +1,4 @@
+constants.js # avoid data leakage
 
 # Created by https://www.gitignore.io/api/node,linux,visualstudiocode,kate
 
