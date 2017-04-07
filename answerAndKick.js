@@ -19,13 +19,16 @@ module.exports = function answerAndKick(msg, answer) {
     });
     this.messageLog.addBanned(msg.from.id);
 
+    // TODO: externalize the following function
     timers.setTimeout(
         function () {
+            // normal groups don't support invitation links
             if (msg.chat.type == 'supergroup') {
                 this.bot.unbanChatMember(msg.chat.id, msg.from.id);
             }
         }.bind(
             {
+                // the function above can't access the bot via this
                 bot: this
             }
         ),
