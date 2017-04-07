@@ -17,8 +17,7 @@ module.exports = function (constants) {
     bot.constants = constants;
     // bot uses messageLog to prevent spam
     bot.messageLog = require('./messageLog')(constants.logSize);
-    // modularisation is always good
-    bot.invite = require('./invite');
+    // modularisation is always god
     bot.answerAndKick = require('./answerAndKick');
     bot.registerActions = require('./registerActions');
     // everything works fine
