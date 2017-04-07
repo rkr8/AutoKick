@@ -1,0 +1,8 @@
+module.exports = {
+    answer: 'Würden Sie es mir übel nehmen, sollte ich Sie darum bitten Ihre Fresse zu halten?',
+    banTime: 10, // seconds
+    invitationText: 'Hier könnte Ihre Werbung stehen.', // TODO: make invitation dependent on group being banned from
+    logSize: 64,
+    threshold: 2,
+    token: process.env.TOKEN,
+};
